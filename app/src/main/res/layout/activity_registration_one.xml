@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/btn_back_create_ac"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:drawableStart="@mipmap/ic_back"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="@string/create_account"
+        android:textColor="@color/colorWhite"
+        android:textSize="24sp" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorWhite" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="32dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/email_address"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/et_white_green_border"
+                android:drawableEnd="@mipmap/ic_check"
+                android:hint="@string/email_address"
+                android:inputType="textEmailAddress"
+                android:padding="16dp"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorGrey" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/create_password"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/et_white_green_border"
+                android:drawableEnd="@mipmap/ic_check"
+                android:hint="@string/password"
+                android:inputType="textWebPassword"
+                android:padding="16dp"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorGrey" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/repeat_password"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_repeat_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/et_white_green_border"
+                android:drawableEnd="@mipmap/ic_check"
+                android:hint="@string/repeat_password"
+                android:inputType="textWebPassword"
+                android:padding="16dp"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorGrey" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/password_instructions"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_next_create_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="28dp"
+        android:background="@drawable/btn_green_gradient"
+        android:padding="16dp"
+        android:text="@string/tv_next"
+        android:textAllCaps="false"
+        android:textColor="@color/colorBlack"
+        android:textSize="24sp" />
+
+
+</LinearLayout>
