@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/iv_user_profile_list"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_greet_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:text="Welcome Ashraf Hussain :D"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/colorWhite" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_user_profile_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
