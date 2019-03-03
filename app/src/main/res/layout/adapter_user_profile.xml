@@ -8,22 +8,19 @@
     android:paddingEnd="16dp"
     android:paddingBottom="16dp">
 
-    <androidx.cardview.widget.CardView
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/colorGrey">
 
         <LinearLayout
+            android:background="@color/colorGrey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="16dp">
 
             <ImageView
+                android:layout_gravity="center"
                 android:id="@+id/iv_user_profile_list"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:src="@mipmap/ic_launcher" />
 
             <LinearLayout
@@ -37,7 +34,7 @@
                     android:id="@+id/tv_user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="3dp"
                     android:text="Ashraf Hussain"
                     android:textColor="@color/colorWhite"
                     android:textSize="16sp" />
@@ -47,7 +44,7 @@
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="3dp"
                     android:text="Atnanta, Georgia"
                     android:textColor="@color/colorWhite"
                     android:textSize="16sp" />
@@ -57,7 +54,7 @@
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="3dp"
                     android:text="10 Rimmintong"
                     android:textColor="@color/colorWhite"
                     android:textSize="16sp" />
@@ -104,5 +101,4 @@
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
 </LinearLayout>

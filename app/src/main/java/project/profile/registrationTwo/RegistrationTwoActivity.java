@@ -246,9 +246,12 @@ public class RegistrationTwoActivity extends AppCompatActivity implements Adapte
                     Bundle bundle = new Bundle();
 
                     bundle.putString(AppConstants.USER_NAME_DATA_KEY, name);
-                    bundle.putString(AppConstants.USER_SAVED_PASSWORD_DATA_KEY, userPassword);
-                    bundle.putString(AppConstants.USER_GENDER_DATA_KEY, gender);
                     bundle.putString(AppConstants.USER_DOB_DATA_KEY, userDob);
+                    bundle.putString(AppConstants.USER_GENDER_DATA_KEY, gender);
+                    bundle.putString(AppConstants.USER_USERNAME_DATA_KEY, username);
+                    bundle.putString(AppConstants.USER_COUNTRY_DATA_KEY, userCountry);
+                    bundle.putString(AppConstants.USER_SAVED_PASSWORD_DATA_KEY, userPassword);
+                    bundle.putString(AppConstants.USER_POSTAL_ADDRESS_DATA_KEY, postalAddress);
                     intent.putExtras(bundle);
                     startActivity(intent);
 
