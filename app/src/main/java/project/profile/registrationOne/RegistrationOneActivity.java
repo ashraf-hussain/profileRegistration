@@ -54,7 +54,7 @@ public class RegistrationOneActivity extends AppCompatActivity {
                     etEmail.setError("Email Required !");
 
                 } else if (!email.matches(emailPattern)) {
-                    etEmail.setError(" Valid Email Required !");
+                    etEmail.setError("Valid Email Required !");
 
                 } else if (password.isEmpty()) {
                     etPassword.setError("Password Required !");
@@ -66,7 +66,6 @@ public class RegistrationOneActivity extends AppCompatActivity {
                     etRepeatPassword.setError("Password Don't Match !");
                 } else {
 
-                    //  Receiving user's data and proceeding to next page.
 
                     if (!email.equalsIgnoreCase("")
                             && email.matches(emailPattern)
@@ -74,6 +73,8 @@ public class RegistrationOneActivity extends AppCompatActivity {
                             && !repeatPassword.equalsIgnoreCase("")
                             && !email.equalsIgnoreCase("")
                             && etRepeatPassword.getText().toString().trim().equalsIgnoreCase(password)) {
+
+                        //  Receiving user's data and proceeding to next page.
 
                         Intent intent = new Intent(RegistrationOneActivity.this,
                                 RegistrationTwoActivity.class);

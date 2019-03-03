@@ -29,4 +29,5 @@
     <string name="create_account_to_access">GreenFlag customers can create an account to access</string>
     <string name="profile_info">Profile Info</string>
     <string name="gender">Gender</string>
+    <string name="select_country">Select Country</string>
 </resources>
