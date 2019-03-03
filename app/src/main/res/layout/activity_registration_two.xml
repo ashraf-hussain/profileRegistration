@@ -36,13 +36,13 @@
                     android:padding="16dp">
 
                     <EditText
+                        android:padding="16dp"
                         android:id="@+id/et_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/colorWhite"
                         android:hint="@string/name"
                         android:inputType="text"
-                        android:padding="16dp"
                         android:textColor="@color/colorBlack"
                         android:textColorHint="@color/colorGrey" />
 
@@ -81,15 +81,17 @@
                         android:textSize="16sp" />
 
 
-                    <TextView
-                        android:id="@+id/tv_dob"
+                    <EditText
+                        android:id="@+id/et_dob"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:background="@color/colorWhite"
+                        android:hint="@string/age"
+                        android:inputType="none"
                         android:padding="16dp"
-                        android:text="@string/age"
-                        android:textColor="@color/colorBlack" />
+                        android:textColor="@color/colorBlack"
+                        android:textColorHint="@color/colorGrey" />
 
                     <Button
                         android:id="@+id/btn_dob_picker"
@@ -101,7 +103,16 @@
                         android:textColor="@color/colorBlack"
                         android:textSize="16sp" />
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/select_country"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="18sp" />
+
                     <Spinner
+                        android:id="@+id/spinner_country_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
@@ -187,13 +198,14 @@
                     android:textColorHint="@color/colorGrey" />
 
                 <Button
-                    android:textColor="@color/colorBlack"
+                    android:id="@+id/btn_save"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:background="@drawable/btn_green_gradient"
                     android:padding="18dp"
                     android:text="@string/save"
+                    android:textColor="@color/colorBlack"
                     android:textSize="16sp" />
 
 
