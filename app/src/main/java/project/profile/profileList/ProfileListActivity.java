@@ -52,9 +52,11 @@ public class ProfileListActivity extends AppCompatActivity {
             userCountry = bundle.getString(AppConstants.USER_COUNTRY_DATA_KEY);
             postalAddress = bundle.getString(AppConstants.USER_POSTAL_ADDRESS_DATA_KEY);
 
-            Log.d("inputthree", name);
+            Log.d("inputthree", userCountry+" ");
         }
 
+
+        tvGreetUserName.setText(name);
         profileModelArrayList = new ArrayList<>();
         userProfileModel = new UserProfileModel();
 
@@ -63,6 +65,7 @@ public class ProfileListActivity extends AppCompatActivity {
         userProfileModel.setGender(gender);
         userProfileModel.setUserDob(userDob);
         userProfileModel.setUsername(username);
+        userProfileModel.setCountry(userCountry);
         userProfileModel.setPostalAddress(postalAddress);
         profileModelArrayList.add(userProfileModel);
 

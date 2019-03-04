@@ -71,6 +71,8 @@
                         android:textColorHint="@color/colorGrey" />
 
                     <Button
+                        android:fontFamily="@font/roboto_mono"
+
                         android:id="@+id/btn_change_pic"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -112,6 +114,8 @@
                         android:textSize="18sp" />
 
                     <Spinner
+                        android:spinnerMode="dialog"
+                        android:prompt="@string/select_country"
                         android:id="@+id/spinner_country_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -180,6 +184,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingStart="16dp"
+                android:layout_marginBottom="16dp"
                 android:paddingEnd="16dp">
 
 
@@ -198,6 +203,7 @@
                     android:textColorHint="@color/colorGrey" />
 
                 <Button
+                    android:fontFamily="@font/roboto_mono"
                     android:id="@+id/btn_save"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

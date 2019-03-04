@@ -60,7 +60,7 @@ public class RegistrationTwoActivity extends AppCompatActivity implements Adapte
 
     String email, password, repeatPassword, name, username, userPassword,
             userDob, gender, postalAddress, userCountry;
-
+    String[] countryNames;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,34 +69,47 @@ public class RegistrationTwoActivity extends AppCompatActivity implements Adapte
         ButterKnife.bind(this);
         calendar = Calendar.getInstance();
         etDob.setEnabled(false);
-
+        spinnerCountryList.setPrompt(getResources().getString(R.string.select_country));
 
         //Spinner drop down elements
-        List<String> countryList = new ArrayList<String>();
-        countryList.add("Nepal");
-        countryList.add("USA");
-        countryList.add("China");
-        countryList.add("Japan");
-        countryList.add("India");
-        countryList.add("Not-Specified");
+
+        countryNames = new String[]{"Nepal", "India", "United States ", "Japan", "Malaysia",
+                "New Zealand", "Indonesia", "Australia", "Not Specified"};
+        int flags[] = {R.drawable.ic_nepal, R.drawable.ic_india, R.drawable.ic_usa,
+                R.drawable.ic_japan, R.drawable.ic_malaysia, R.drawable.ic_newzealand,
+                R.drawable.ic_indonesia, R.drawable.ic_australia, R.drawable.ic_county};
+
+//        List<String> countryList = new ArrayList<String>();
+//        countryList.add("Nepal");
+//        countryList.add("Italy");
+//        countryList.add("Japan");
+//        countryList.add("India");
+//        countryList.add("France");
+//        countryList.add("Singapore");
+//        countryList.add("Indonesia");
+//        countryList.add("New Zealand");
+//        countryList.add("United States");
+//        countryList.add("Not-Specified");
 
         //Creating adapter for spinner
         // Initializing an ArrayAdapter
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
-                this, R.layout.custom_spinner_country_item, R.id.tv_spinner_country_list,
-                countryList
-        );
-        spinnerArrayAdapter.setDropDownViewResource(R.layout.custom_spinner_country_item);
-        spinnerCountryList.setAdapter(spinnerArrayAdapter);
+        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), flags, countryNames);
+
+//
+//        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
+//                this, R.layout.custom_spinner_country_item, R.id.tv_spinner_country_list,
+//                countryList
+//        );
+//        spinnerArrayAdapter.setDropDownViewResource(R.layout.custom_spinner_country_item);
         //attaching adapter to spinner
-        spinnerCountryList.setAdapter(spinnerArrayAdapter);
-        userCountry = spinnerCountryList.getSelectedItem().toString();
+        spinnerCountryList.setAdapter(customAdapter);
+//        userCountry = spinnerCountryList.getSelectedItem().toString();
 
-        spinnerCountryList.setSelection(spinnerArrayAdapter.getCount());        //set the hint the default selection so it appears on launch.
+        spinnerCountryList.setSelection(customAdapter.getCount());        //set the hint the default selection so it appears on launch.
         spinnerCountryList.setOnItemSelectedListener(this);
-        spinnerArrayAdapter.notifyDataSetChanged();
+        customAdapter.notifyDataSetChanged();
 
-        Toast.makeText(this, userCountry, Toast.LENGTH_SHORT).show();
+        // Toast.makeText(this, userCountry, Toast.LENGTH_SHORT).show();
 
 
         //DatePicker
@@ -111,7 +124,7 @@ public class RegistrationTwoActivity extends AppCompatActivity implements Adapte
             }
 
             private void updateDate() {
-                String dateFormat = "MM/dd/yy";
+                String dateFormat = "MM-dd-yy";
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat, Locale.US);
                 etDob.setText(simpleDateFormat.format(calendar.getTime()));
             }
@@ -131,23 +144,36 @@ public class RegistrationTwoActivity extends AppCompatActivity implements Adapte
 
     }
 
+
+    //Performing action onItemSelected and onNothing selected
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-        //On selecting a spinner item
-        userCountry = spinnerCountryList.getItemAtPosition(position).toString();
-        Log.d("userCountry", userCountry);
-
-        Toast.makeText(this, userCountry, Toast.LENGTH_SHORT).show();
-
+    public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
+        Toast.makeText(getApplicationContext(), countryNames[position], Toast.LENGTH_LONG).show();
+        userCountry = countryNames[position];
     }
 
     @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-        Toast.makeText(this, "Country not selected !", Toast.LENGTH_SHORT).show();
-        Log.d("userCountry", "no");
-
+    public void onNothingSelected(AdapterView<?> arg0) {
+        // TODO Auto-generated method stub
     }
+
+//    @Override
+//    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//
+//        //On selecting a spinner item
+////        userCountry = spinnerCountryList.getItemAtPosition(position).toString();
+//        Log.d("userCountry", userCountry);
+//
+//          Toast.makeText(this, userCountry, Toast.LENGTH_SHORT).show();
+//
+//    }
+//
+//    @Override
+//    public void onNothingSelected(AdapterView<?> parent) {
+//        // Toast.makeText(this, "Country not selected !", Toast.LENGTH_SHORT).show();
+//        Log.d("userCountry", "no");
+//
+//    }
 
     public void onRadioButtonClicked(View view) {
 
@@ -157,22 +183,22 @@ public class RegistrationTwoActivity extends AppCompatActivity implements Adapte
             case R.id.rb_female:
 
                 if (checked)
-                    gender = "female";
-                Toast.makeText(this, gender, Toast.LENGTH_SHORT).show();
+                    gender = "Female";
+                //Toast.makeText(this, gender, Toast.LENGTH_SHORT).show();
 
                 break;
 
             case R.id.rb_male:
                 if (checked) {
-                    gender = "male";
-                    Toast.makeText(this, gender, Toast.LENGTH_SHORT).show();
+                    gender = "Male";
+                    // Toast.makeText(this, gender, Toast.LENGTH_SHORT).show();
 
                 }
                 break;
             case R.id.rb_not_specified:
                 if (checked) {
                     gender = "Not Specified";
-                    Toast.makeText(this, gender, Toast.LENGTH_SHORT).show();
+                    //  Toast.makeText(this, gender, Toast.LENGTH_SHORT).show();
                 }
                 break;
         }
@@ -228,7 +254,7 @@ public class RegistrationTwoActivity extends AppCompatActivity implements Adapte
 
                 } else if (userDob.isEmpty()) {
                     etDob.setError("DOB Required !");
-                } else if (userCountry.equalsIgnoreCase("Not-Specified")) {
+                } else if (userCountry.equalsIgnoreCase("Not Specified")) {
 
                     Toast.makeText(this, "Please Select Your Country!",
                             Toast.LENGTH_SHORT).show();
@@ -238,7 +264,7 @@ public class RegistrationTwoActivity extends AppCompatActivity implements Adapte
                         && !username.equalsIgnoreCase("")
                         && !userPassword.equalsIgnoreCase("")
                         && !userDob.matches("")
-                        && !userCountry.equalsIgnoreCase("Not-Specified")
+                        && !userCountry.equalsIgnoreCase("Not Specified")
                         && userPassword.equalsIgnoreCase(password)) {
 
                     Intent intent = new Intent(RegistrationTwoActivity.this,

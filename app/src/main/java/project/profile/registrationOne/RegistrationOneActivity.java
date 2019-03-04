@@ -1,15 +1,18 @@
 package project.profile.registrationOne;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -26,6 +29,10 @@ public class RegistrationOneActivity extends AppCompatActivity {
     EditText etPassword;
     @BindView(R.id.et_repeat_password)
     EditText etRepeatPassword;
+    @BindView(R.id.btn_back_create_ac)
+    TextView btnBackCreateAc;
+    @BindView(R.id.tv_valid_password_instruction)
+    TextView tvValidPasswordInstruction;
 
     String email, password, repeatPassword;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
@@ -58,7 +65,10 @@ public class RegistrationOneActivity extends AppCompatActivity {
 
                 } else if (password.isEmpty()) {
                     etPassword.setError("Password Required !");
-                    Log.d("pass", password);
+                } else if (password.length() <= 8 && !isValidPassword(password)) {
+                    etPassword.setError("Valid Password Required !");
+                    tvValidPasswordInstruction.setTextColor(Color.RED);
+
                 } else if (repeatPassword.isEmpty()) {
                     etRepeatPassword.setError("Repeat Password Required !");
 
@@ -89,5 +99,19 @@ public class RegistrationOneActivity extends AppCompatActivity {
                 }
                 break;
         }
+    }
+
+
+    public static boolean isValidPassword(final String password) {
+
+        Pattern pattern;
+        Matcher matcher;
+       // final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
+        final String PASSWORD_PATTERN = "^([a-zA-Z+]+[0-9+]+[&@!#+]+)$";
+        pattern = Pattern.compile(PASSWORD_PATTERN);
+        matcher = pattern.matcher(password);
+
+        return matcher.matches();
+
     }
 }
