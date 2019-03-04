@@ -123,20 +123,17 @@ public class ProfileListActivity extends AppCompatActivity {
             if ( inputStream != null ) {
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String receiveString = "";
+                String receiveUserData = "";
                 StringBuilder stringBuilder = new StringBuilder();
 
-                while ( (receiveString = bufferedReader.readLine()) != null ) {
-                    stringBuilder.append(receiveString);
+                while ( (receiveUserData = bufferedReader.readLine()) != null ) {
+                    stringBuilder.append(receiveUserData);
 
-                    Log.d("fileData", receiveString);
+                    Log.d("fileData", receiveUserData);
 
                 }
 
                 inputStream.close();
-                String ret = stringBuilder.toString();
-                Log.d("fileData", ret);
-
             }
         }
         catch (FileNotFoundException e) {
