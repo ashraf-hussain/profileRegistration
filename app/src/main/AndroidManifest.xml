@@ -25,6 +25,10 @@
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".profileList.ProfileListActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
