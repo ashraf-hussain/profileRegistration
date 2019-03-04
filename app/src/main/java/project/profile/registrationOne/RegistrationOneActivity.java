@@ -42,6 +42,8 @@ public class RegistrationOneActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_one);
         ButterKnife.bind(this);
+
+
     }
 
     @OnClick({R.id.btn_back_create_ac, R.id.btn_next_create_account})
@@ -64,18 +66,32 @@ public class RegistrationOneActivity extends AppCompatActivity {
                     etEmail.setError("Valid Email Required !");
 
                 } else if (password.isEmpty()) {
+                    Log.d("rp1", "onViewClicked: ");
+
+                    etEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_check, 0);
                     etPassword.setError("Password Required !");
+
                 } else if (password.length() <= 8 && !isValidPassword(password)) {
+                    Log.d("rp2", "onViewClicked: ");
+
+                    etEmail.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_check, 0);
                     etPassword.setError("Valid Password Required !");
                     tvValidPasswordInstruction.setTextColor(Color.RED);
 
                 } else if (repeatPassword.isEmpty()) {
+                    etPassword.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_check, 0);
+                    Log.d("rp3", "onViewClicked: ");
                     etRepeatPassword.setError("Repeat Password Required !");
 
                 } else if (!repeatPassword.equalsIgnoreCase(password)) {
+                    Log.d("rp4", "onViewClicked: ");
+                    etPassword.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_check, 0);
                     etRepeatPassword.setError("Password Don't Match !");
                 } else {
+                    Log.d("rp5", "onViewClicked: ");
 
+                   // etPassword.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_check, 0);
+                   // etRepeatPassword.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_check, 0);
 
                     if (!email.equalsIgnoreCase("")
                             && email.matches(emailPattern)
@@ -83,6 +99,7 @@ public class RegistrationOneActivity extends AppCompatActivity {
                             && !repeatPassword.equalsIgnoreCase("")
                             && !email.equalsIgnoreCase("")
                             && etRepeatPassword.getText().toString().trim().equalsIgnoreCase(password)) {
+
 
                         //  Receiving user's data and proceeding to next page.
 
@@ -106,7 +123,7 @@ public class RegistrationOneActivity extends AppCompatActivity {
 
         Pattern pattern;
         Matcher matcher;
-       // final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
+        // final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
         final String PASSWORD_PATTERN = "^([a-zA-Z+]+[0-9+]+[&@!#+]+)$";
         pattern = Pattern.compile(PASSWORD_PATTERN);
         matcher = pattern.matcher(password);

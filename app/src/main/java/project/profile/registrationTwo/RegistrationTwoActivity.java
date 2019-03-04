@@ -79,33 +79,13 @@ public class RegistrationTwoActivity extends AppCompatActivity implements Adapte
                 R.drawable.ic_japan, R.drawable.ic_malaysia, R.drawable.ic_newzealand,
                 R.drawable.ic_indonesia, R.drawable.ic_australia, R.drawable.ic_county};
 
-//        List<String> countryList = new ArrayList<String>();
-//        countryList.add("Nepal");
-//        countryList.add("Italy");
-//        countryList.add("Japan");
-//        countryList.add("India");
-//        countryList.add("France");
-//        countryList.add("Singapore");
-//        countryList.add("Indonesia");
-//        countryList.add("New Zealand");
-//        countryList.add("United States");
-//        countryList.add("Not-Specified");
-
         //Creating adapter for spinner
         // Initializing an ArrayAdapter
         CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), flags, countryNames);
 
-//
-//        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
-//                this, R.layout.custom_spinner_country_item, R.id.tv_spinner_country_list,
-//                countryList
-//        );
-//        spinnerArrayAdapter.setDropDownViewResource(R.layout.custom_spinner_country_item);
-        //attaching adapter to spinner
-        spinnerCountryList.setAdapter(customAdapter);
-//        userCountry = spinnerCountryList.getSelectedItem().toString();
 
-        spinnerCountryList.setSelection(customAdapter.getCount());        //set the hint the default selection so it appears on launch.
+        spinnerCountryList.setAdapter(customAdapter);
+        spinnerCountryList.setSelection(customAdapter.getCount());
         spinnerCountryList.setOnItemSelectedListener(this);
         customAdapter.notifyDataSetChanged();
 
@@ -157,23 +137,6 @@ public class RegistrationTwoActivity extends AppCompatActivity implements Adapte
         // TODO Auto-generated method stub
     }
 
-//    @Override
-//    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//
-//        //On selecting a spinner item
-////        userCountry = spinnerCountryList.getItemAtPosition(position).toString();
-//        Log.d("userCountry", userCountry);
-//
-//          Toast.makeText(this, userCountry, Toast.LENGTH_SHORT).show();
-//
-//    }
-//
-//    @Override
-//    public void onNothingSelected(AdapterView<?> parent) {
-//        // Toast.makeText(this, "Country not selected !", Toast.LENGTH_SHORT).show();
-//        Log.d("userCountry", "no");
-//
-//    }
 
     public void onRadioButtonClicked(View view) {
 
@@ -231,63 +194,67 @@ public class RegistrationTwoActivity extends AppCompatActivity implements Adapte
                 onRadioButtonClicked(view);
                 break;
             case R.id.btn_save:
-
-                // Validating user's data.
-                name = etName.getText().toString().trim();
-                userDob = etDob.getText().toString().trim();
-                username = etUsername.getText().toString().trim();
-                userPassword = etPassword.getText().toString().trim();
-                postalAddress = etPostalAddress.getText().toString().trim();
+                processData();
 
 
-                if (name.isEmpty()) {
-                    etName.setError("Name Required !");
-
-                } else if (username.isEmpty()) {
-                    etUsername.setError("Username Required !");
-
-                } else if (userPassword.isEmpty()) {
-                    etPassword.setError("Password Required !");
-
-                } else if (!userPassword.equalsIgnoreCase(password)) {
-                    etPassword.setError("Wrong Password !");
-
-                } else if (userDob.isEmpty()) {
-                    etDob.setError("DOB Required !");
-                } else if (userCountry.equalsIgnoreCase("Not Specified")) {
-
-                    Toast.makeText(this, "Please Select Your Country!",
-                            Toast.LENGTH_SHORT).show();
-                }
-
-                if (!name.equalsIgnoreCase("")
-                        && !username.equalsIgnoreCase("")
-                        && !userPassword.equalsIgnoreCase("")
-                        && !userDob.matches("")
-                        && !userCountry.equalsIgnoreCase("Not Specified")
-                        && userPassword.equalsIgnoreCase(password)) {
-
-                    Intent intent = new Intent(RegistrationTwoActivity.this,
-                            ProfileListActivity.class);
-                    Bundle bundle = new Bundle();
-
-                    bundle.putString(AppConstants.USER_NAME_DATA_KEY, name);
-                    bundle.putString(AppConstants.USER_DOB_DATA_KEY, userDob);
-                    bundle.putString(AppConstants.USER_GENDER_DATA_KEY, gender);
-                    bundle.putString(AppConstants.USER_USERNAME_DATA_KEY, username);
-                    bundle.putString(AppConstants.USER_COUNTRY_DATA_KEY, userCountry);
-                    bundle.putString(AppConstants.USER_SAVED_PASSWORD_DATA_KEY, userPassword);
-                    bundle.putString(AppConstants.USER_POSTAL_ADDRESS_DATA_KEY, postalAddress);
-                    intent.putExtras(bundle);
-                    startActivity(intent);
-
-                    Log.d("inputDataFromTwo", username + " " + userPassword + " "
-                            + userDob + " " + gender + " " + userCountry + " " + postalAddress);
-                }
                 break;
         }
 
     }
 
+    private void processData() {
+        // Validating user's data.
+        name = etName.getText().toString().trim();
+        userDob = etDob.getText().toString().trim();
+        username = etUsername.getText().toString().trim();
+        userPassword = etPassword.getText().toString().trim();
+        postalAddress = etPostalAddress.getText().toString().trim();
 
+
+        if (name.isEmpty()) {
+            etName.setError("Name Required !");
+
+        } else if (username.isEmpty()) {
+            etUsername.setError("Username Required !");
+
+        } else if (userPassword.isEmpty()) {
+            etPassword.setError("Password Required !");
+
+        } else if (!userPassword.equalsIgnoreCase(password)) {
+            etPassword.setError("Wrong Password !");
+
+        } else if (userDob.isEmpty()) {
+            etDob.setError("DOB Required !");
+        } else if (userCountry.equalsIgnoreCase("Not Specified")) {
+
+            Toast.makeText(this, "Please Select Your Country!",
+                    Toast.LENGTH_SHORT).show();
+        }
+
+        if (!name.equalsIgnoreCase("")
+                && !username.equalsIgnoreCase("")
+                && !userPassword.equalsIgnoreCase("")
+                && !userDob.matches("")
+                && !userCountry.equalsIgnoreCase("Not Specified")
+                && userPassword.equalsIgnoreCase(password)) {
+
+            Intent intent = new Intent(RegistrationTwoActivity.this,
+                    ProfileListActivity.class);
+            Bundle bundle = new Bundle();
+
+            bundle.putString(AppConstants.USER_NAME_DATA_KEY, name);
+            bundle.putString(AppConstants.USER_DOB_DATA_KEY, userDob);
+            bundle.putString(AppConstants.USER_GENDER_DATA_KEY, gender);
+            bundle.putString(AppConstants.USER_USERNAME_DATA_KEY, username);
+            bundle.putString(AppConstants.USER_COUNTRY_DATA_KEY, userCountry);
+            bundle.putString(AppConstants.USER_SAVED_PASSWORD_DATA_KEY, userPassword);
+            bundle.putString(AppConstants.USER_POSTAL_ADDRESS_DATA_KEY, postalAddress);
+            intent.putExtras(bundle);
+            startActivity(intent);
+
+            Log.d("inputDataFromTwo", username + " " + userPassword + " "
+                    + userDob + " " + gender + " " + userCountry + " " + postalAddress);
+        }
+
+    }
 }
