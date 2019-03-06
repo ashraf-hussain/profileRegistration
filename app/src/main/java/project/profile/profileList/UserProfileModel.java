@@ -15,7 +15,7 @@ public class UserProfileModel  {
     public String postalAddress;
 
     public String getName() {
-        Log.d("check", name);
+//        Log.d("check", name);
         return name;
     }
 
@@ -24,7 +24,7 @@ public class UserProfileModel  {
     }
 
     public String getGender() {
-        Log.d("check", gender);
+        //Log.d("check", gender);
         return gender;
     }
 

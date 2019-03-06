@@ -37,9 +37,9 @@
 
             <TextView
                 android:id="@+id/tv_greet_user_name"
-                android:fontFamily="@font/roboto_mono"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_mono"
                 android:textColor="@color/colorWhite"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -56,10 +56,26 @@
         android:layout_marginBottom="16dp"
         android:background="@color/colorWhite" />
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_user_profile_list"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_user_profile_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+        <ImageView
+            android:id="@+id/iv_add_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginEnd="26dp"
+            android:layout_marginBottom="36dp"
+            android:src="@drawable/ic_plus" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
 </LinearLayout>

@@ -12,4 +12,5 @@ public class AppConstants {
     public static final String USER_USERNAME_DATA_KEY ="username" ;
     public static final String USER_COUNTRY_DATA_KEY = "user_country";
     public static final String USER_POSTAL_ADDRESS_DATA_KEY = "postal_address";
+    public static final String SKIP_DATA ="skip" ;
 }

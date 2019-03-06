@@ -246,11 +246,13 @@ public class RegistrationTwoActivity extends AppCompatActivity implements Adapte
             bundle.putString(AppConstants.USER_DOB_DATA_KEY, userDob);
             bundle.putString(AppConstants.USER_GENDER_DATA_KEY, gender);
             bundle.putString(AppConstants.USER_USERNAME_DATA_KEY, username);
+            bundle.putString(AppConstants.USER_EMAIL_DATA_KEY, email);
             bundle.putString(AppConstants.USER_COUNTRY_DATA_KEY, userCountry);
             bundle.putString(AppConstants.USER_SAVED_PASSWORD_DATA_KEY, userPassword);
             bundle.putString(AppConstants.USER_POSTAL_ADDRESS_DATA_KEY, postalAddress);
             intent.putExtras(bundle);
             startActivity(intent);
+            this.finish();
 
             Log.d("inputDataFromTwo", username + " " + userPassword + " "
                     + userDob + " " + gender + " " + userCountry + " " + postalAddress);

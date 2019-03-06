@@ -112,6 +112,7 @@ public class RegistrationOneActivity extends AppCompatActivity {
                         Log.d("inputDataOne", email + " " + password + " " + repeatPassword);
                         intent.putExtras(bundle);
                         startActivity(intent);
+                        this.finish();
                     }
                 }
                 break;
